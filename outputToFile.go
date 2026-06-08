@@ -21,5 +21,13 @@ func outputToFile(inputFile string, outputFile string) (error, string) {
 
 		inputContentString := string(inputContent)
 
+		// capitalise every file text, line by line
+		var result strings.Builder
+		for _, line := range strings.Split(inputContentString, "\n") {
+			result.WriteString(strings.ToUpper(line) + "\n")
+		}
+		// Collect the strings in the string builder together
+		result.String()
+
 	}
 }
