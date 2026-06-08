@@ -19,6 +19,11 @@ func outputToFile(inputFile string, outputFile string) (error, string) {
 			return fmt.Errorf("unable to read file: %v", err), ""
 		}
 
+		// check if input file is empty
+		if len(inputContent) == 0 {
+			return fmt.Errorf("input file is empty. Please, ensure there is a content in the file, and try again."), ""
+		}
+
 		inputContentString := string(inputContent)
 
 		// capitalise every file text, line by line
