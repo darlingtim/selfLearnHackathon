@@ -13,7 +13,7 @@ func outputToFile(inputFile string, outputFile string) (error, string) {
 
 	} else {
 		// read input file
-		inputContent, err := os.ReadFile(outputFile)
+		inputContent, err := os.ReadFile(inputFile)
 		// check and capture reading input file error
 		if err != nil {
 			return fmt.Errorf("unable to read file: %v", err), ""
