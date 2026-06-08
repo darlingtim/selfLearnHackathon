@@ -26,8 +26,13 @@ func outputToFile(inputFile string, outputFile string) (error, string) {
 		for _, line := range strings.Split(inputContentString, "\n") {
 			result.WriteString(strings.ToUpper(line) + "\n")
 		}
-		// Collect the strings in the string builder together
-		result.String()
+
+		// write to output file
+		writeError := os.WriteFile(outputFile, []byte(result.String()), 0644)
+		if writeError != nil {
+			return writeError, ""
+		}
 
 	}
+	return nil, fmt.Sprintf("%v has been successfully read, Capitalized and written to %v", inputFile, outputFile)
 }
